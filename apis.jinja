@@ -1,0 +1,12 @@
+resources:
+- name: {{ env['deployment'] }}-compute
+  type: deploymentmanager.v2.virtual.enableService
+  properties:
+    consumerId: "project:{{ env['project'] }}"
+    serviceName: compute
+
+- name: {{ env['deployment'] }}-container
+  type: deploymentmanager.v2.virtual.enableService
+  properties:
+    consumerId: "project:{{ env['project'] }}"
+    serviceName: container
