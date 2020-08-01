@@ -18,3 +18,8 @@ imports:
 resources:
 - name: apis
   type: apis.jinja
+  properties:
+    apis:
+      - compute.googleapis.com
+      - container.googleapis.com
+      - firestore.googleapis.com

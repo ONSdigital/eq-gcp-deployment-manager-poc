@@ -1,19 +1,8 @@
 resources:
-- name: {{ env['deployment'] }}-compute
+{% for api in properties['apis'] %}
+- name: {{ env['deployment'] }}-{{ api }}
   type: deploymentmanager.v2.virtual.enableService
   properties:
     consumerId: "project:{{ env['project'] }}"
-    serviceName: compute.googleapis.com
-
-- name: {{ env['deployment'] }}-container
-  type: deploymentmanager.v2.virtual.enableService
-  properties:
-    consumerId: "project:{{ env['project'] }}"
-    serviceName: container.googleapis.com
-
-- name: {{ env['deployment'] }}-firestore
-  type: deploymentmanager.v2.virtual.enableService
-  properties:
-    consumerId: "project:{{ env['project'] }}"
-    serviceName: firestore.googleapis.com
-    
+    serviceName: {{ api }}
+{% endfor %}    
