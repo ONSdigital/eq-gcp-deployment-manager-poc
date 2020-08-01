@@ -19,7 +19,7 @@ imports:
   name: memorystore-instance.jinja
 
 resources:
-- name: eqbs-cluster
+- name: cluster
   type: cluster.jinja
   properties:
     zone: europe-west2-a  
