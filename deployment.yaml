@@ -23,6 +23,8 @@ resources:
   type: cluster.jinja
   properties:
     zone: europe-west2-a  
+    oauthScopes:
+      - https://www.googleapis.com/auth/cloud-platform
 
 - name: redis
   type: memorystore-instance.jinja

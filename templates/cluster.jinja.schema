@@ -63,3 +63,8 @@ properties:
   nodeVersion:
     type: string
     description: The Kubernetes version running on the cluster nodes.
+  oauthScopes:
+    type: array
+    default:
+      - https://www.googleapis.com/auth/devstorage.read_only
+    description: The scopes the cluster can access
