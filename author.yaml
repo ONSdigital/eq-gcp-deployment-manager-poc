@@ -19,8 +19,11 @@ imports:
 resources:
 - name: apis
   type: apis.jinja
-  
-- name: my-cluster
+
+- name: eqbs
   type: cluster.jinja
   properties:
-    zone: europe-west2-a
+    zone: europe-west2-a  
+  metadata:
+    dependsOn:
+    - apis
