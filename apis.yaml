@@ -13,10 +13,8 @@
 # limitations under the License.
 
 imports:
-- path: cluster.jinja
+- path: apis.jinja
 
 resources:
-- name: eqbs
-  type: cluster.jinja
-  properties:
-    zone: europe-west2-a  
+- name: apis
+  type: apis.jinja
