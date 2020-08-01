@@ -1,4 +1,5 @@
-# Copyright 2016 Google Inc. All rights reserved.
+
+# Copyright 2019 Google Inc. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,11 +13,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-imports:
-- path: cluster.jinja
-
 resources:
-- name: eqbs
-  type: cluster.jinja
+- name: {{ env["deployment"] }}-redis
+  type: gcp-types/redis-v1:projects.locations.instances
   properties:
-    zone: europe-west2-a  
+    parent: projects/{{ env["project"] }}/locations/{{ properties["region"] }}
+    instanceId: {{ env["deployment"] }}-redis
+    authorizedNetwork: projects/{{ env["project"] }}/global/networks/default
+    memorySizeGb: 10
+    tier: BASIC
+    {% if properties["displayName"] %}
+    displayName: {{ properties["displayName"] }}
+    {% endif %}

@@ -13,15 +13,18 @@
 # limitations under the License.
 
 imports:
-- path: templates/apis.jinja
-  name: apis.jinja
+- path: templates/cluster.jinja
+  name: cluster.jinja
+- path: templates/memorystore-instance.jinja
+  name: memorystore-instance.jinja
 
 resources:
-- name: apis
-  type: apis.jinja
+- name: eqbs-cluster
+  type: cluster.jinja
   properties:
-    apis:
-      - compute.googleapis.com
-      - container.googleapis.com
-      - firestore.googleapis.com
-      - redis.googleapis.com
+    zone: europe-west2-a  
+
+- name: redis
+  type: memorystore-instance.jinja
+  properties:
+    region: europe-west2
