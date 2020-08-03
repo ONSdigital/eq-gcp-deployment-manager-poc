@@ -20,7 +20,7 @@ resources:
     parent: projects/{{ env["project"] }}/locations/{{ properties["region"] }}
     instanceId: {{ env["deployment"] }}-redis
     authorizedNetwork: projects/{{ env["project"] }}/global/networks/default
-    memorySizeGb: 10
+    memorySizeGb: 1
     tier: BASIC
     {% if properties["displayName"] %}
     displayName: {{ properties["displayName"] }}
